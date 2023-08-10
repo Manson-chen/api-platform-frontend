@@ -16,8 +16,8 @@ interface ResponseStructure {
  */
 export const requestConfig: RequestConfig = {
   // baseURL: 'http://localhost:7529',
-  baseURL: 'http://62.234.8.36:7529',
-  // baseURL:  process.env.NODE_ENV === 'production' ? 'http://62.234.8.36:7529' : 'http://localhost:7529',
+  // baseURL: 'http://62.234.8.36:7529',
+  baseURL:  process.env.NODE_ENV === 'production' ? 'http://62.234.8.36:7529' : 'http://localhost:7529',
   withCredentials: true,
   // 请求拦截器
   requestInterceptors: [

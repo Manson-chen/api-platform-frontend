@@ -1,5 +1,5 @@
 import Footer from '@/components/Footer';
-import { getFakeCaptcha } from '@/services/ant-design-pro/login';
+import {getFakeCaptcha} from '@/services/ant-design-pro/login';
 import {
   AlipayCircleOutlined,
   LockOutlined,
@@ -8,18 +8,13 @@ import {
   UserOutlined,
   WeiboCircleOutlined,
 } from '@ant-design/icons';
-import {
-  LoginForm,
-  ProFormCaptcha,
-  ProFormCheckbox,
-  ProFormText,
-} from '@ant-design/pro-components';
-import { history, useModel } from '@umijs/max';
-import { Alert, message, Tabs } from 'antd';
-import React, { useState } from 'react';
-import { flushSync } from 'react-dom';
+import {LoginForm, ProFormCaptcha, ProFormCheckbox, ProFormText,} from '@ant-design/pro-components';
+import {history, useModel} from '@umijs/max';
+import {Alert, message, Tabs} from 'antd';
+import React, {useState} from 'react';
 import styles from './index.less';
-import { userLoginUsingPOST } from '@/services/yuapi-backend/userController';
+import {userLoginUsingPOST} from '@/services/yuapi-backend/userController';
+import {Link} from "@@/exports";
 
 const LoginMessage: React.FC<{
   content: string;
@@ -65,7 +60,7 @@ const Login: React.FC = () => {
       <div className={styles.content}>
         <LoginForm
           logo={<img alt="logo" src="/logo.svg" />}
-          title="鱼皮接口"
+          title="API 接口"
           subTitle={'API 开放平台'}
           initialValues={{
             autoLogin: true,
@@ -89,10 +84,10 @@ const Login: React.FC = () => {
                 key: 'account',
                 label: '账户密码登录',
               },
-              {
-                key: 'mobile',
-                label: '手机号登录',
-              },
+              // {
+              //   key: 'mobile',
+              //   label: '手机号登录',
+              // },
             ]}
           />
 
@@ -107,7 +102,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   prefix: <UserOutlined className={styles.prefixIcon} />,
                 }}
-                placeholder={'用户名: admin or user'}
+                placeholder={'用户名: admin'}
                 rules={[
                   {
                     required: true,
@@ -121,7 +116,7 @@ const Login: React.FC = () => {
                   size: 'large',
                   prefix: <LockOutlined className={styles.prefixIcon} />,
                 }}
-                placeholder={'密码: ant.design'}
+                placeholder={'密码: abc123456'}
                 rules={[
                   {
                     required: true,
@@ -195,13 +190,14 @@ const Login: React.FC = () => {
             <ProFormCheckbox noStyle name="autoLogin">
               自动登录
             </ProFormCheckbox>
-            <a
-              style={{
-                float: 'right',
-              }}
-            >
-              忘记密码 ?
-            </a>
+            <Link to="/user/register" style={{float: 'right'}}>新用户注册</Link>
+            {/*<a*/}
+            {/*  style={{*/}
+            {/*    float: 'right',*/}
+            {/*  }}*/}
+            {/*>*/}
+            {/*  忘记密码 ?*/}
+            {/*</a>*/}
           </div>
         </LoginForm>
       </div>

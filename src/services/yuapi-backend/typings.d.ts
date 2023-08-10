@@ -574,6 +574,8 @@ declare namespace API {
     userAvatar?: string;
     userName?: string;
     userRole?: string;
+    accessKey?: string;
+    secretKey?: string;
   };
 
   type View = {
